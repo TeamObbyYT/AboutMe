@@ -1,9 +1,112 @@
-<doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About TeamObby</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+    }
 
+    header {
+      padding: 2rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    section h2 {
+      color: #00d4ff;
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+<body>
+
+  <header>
+    <h1>Hello, We're TeamObby</h1>
+    <p>Creative Developers | Tech Enthusiasts | Problem Solvers</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p id="about-content">Loading about info...</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React, Node.js</li>
+        <li>UI/UX Design</li>
+        <li>Responsive Design</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Let's connect! Reach us at <a href="mailto:community4obby@gmail.com">community4obby@gmail.com</a> or follow us on <a href="https://github.com/yourusername" target="_blank">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 TeamObby. All rights reserved.
+  </footer>
+
+  <script>
+    fetch('about.txt')
+      .then(response => {
+        if (!response.ok) throw new Error('Could not load about.txt');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('about-content').textContent = data;
+      })
+      .catch(error => {
+        document.getElementById('about-content').textContent = 'Failed to load about information.';
+        console.error(error);
+      });
+  </script>
+
+</body>
 </html>
