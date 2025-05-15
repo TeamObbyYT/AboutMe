@@ -93,20 +93,21 @@
     &copy; 2025 TeamObby. All rights reserved.
   </footer>
 
-  <script>
-    fetch('about.txt')
-      .then(response => {
-        if (!response.ok) throw new Error('Could not load about.txt');
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('about-content').textContent = data;
-      })
-      .catch(error => {
-        document.getElementById('about-content').textContent = 'Failed to load about information.';
-        console.error(error);
-      });
-  </script>
+<script>
+  fetch('about.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Could not load about.txt');
+      return response.text();
+    })
+    .then(data => {
+      const formatted = data.replace(/\n/g, '<br>');
+      document.getElementById('about-content').innerHTML = formatted;
+    })
+    .catch(error => {
+      document.getElementById('about-content').textContent = 'Failed to load about information.';
+      console.error(error);
+    });
+</script>
 
 </body>
 </html>
