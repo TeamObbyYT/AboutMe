@@ -1,3 +1,3 @@
-Welcome to AboutMe!\n
-\n
+Welcome to AboutMe!
+
 This is still in developement so it is still wroking!
